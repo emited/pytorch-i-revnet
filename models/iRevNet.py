@@ -113,6 +113,7 @@ class iRevNet(nn.Module):
         for channel, depth, stride in zip(nChannels, nBlocks, nStrides):
             strides = strides + ([stride] + [1]*(depth-1))
             channels = channels + ([channel]*depth)
+        print('strides', strides, 'channels', channels)
         for channel, stride in zip(channels, strides):
             block_list.append(_block(in_ch, channel, stride,
                                      first=self.first,
